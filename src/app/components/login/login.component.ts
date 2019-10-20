@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm;
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
   ) {
     this.loginForm = this.formBuilder.group({
       login: '',
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit(value) {
     console.log(value);
-    this.loginForm.reset();
+    this.router.navigateByUrl('/main');
+    // this.loginForm.reset();
   }
 
   ngOnInit() {
