@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
     {
       name: 'Закрытый раздел 4',
       link: '/admin'
-    },,
+    },
   ];
 
   constructor() { }
