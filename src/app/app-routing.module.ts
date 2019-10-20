@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from '@app/services/auth-guard.service';
 
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
@@ -13,14 +14,12 @@ import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'public', component: PublicComponent },
-  { path: 'public', component: PublicComponent },
-  { path: 'page1', component: Page1Component },
-  { path: 'page2', component: Page2Component },
-  { path: 'page3', component: Page3Component },
-  { path: 'admin', component: AdminComponent },
+  { path: 'page1', component: Page1Component, canActivate: [AuthGuardService] },
+  { path: 'page2', component: Page2Component, canActivate: [AuthGuardService] },
+  { path: 'page3', component: Page3Component, canActivate: [AuthGuardService] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -22,7 +23,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit(value) {
     console.log(value);
-    this.router.navigateByUrl('/main');
+    const userPermissions = {
+      page1: true,
+      page2: true,
+      page3: true,
+      admin: true,
+    };
+    const dataString: string = JSON.stringify(userPermissions);
+    localStorage.setItem('user', dataString);
+    this.router.navigateByUrl('/');
     // this.loginForm.reset();
   }
 
