@@ -13,15 +13,15 @@ import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: MainComponent },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: 'main', component: MainComponent },
   { path: 'public', component: PublicComponent },
-  // { path: '',   redirectTo: '/calendar', pathMatch: 'full' },
-  // { path: '**', component: PageNotFoundComponent },
   { path: 'public', component: PublicComponent },
   { path: 'page1', component: Page1Component },
   { path: 'page2', component: Page2Component },
   { path: 'page3', component: Page3Component },
   { path: 'admin', component: AdminComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
