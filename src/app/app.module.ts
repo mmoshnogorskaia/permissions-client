@@ -10,6 +10,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { Page1Component } from './components/page1/page1.component';
 import { Page2Component } from './components/page2/page2.component';
 import { Page3Component } from './components/page3/page3.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Page3Component } from './components/page3/page3.component';
     AdminComponent,
     Page1Component,
     Page2Component,
-    Page3Component
+    Page3Component,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
