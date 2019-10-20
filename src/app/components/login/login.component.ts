@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private auth: AuthService,
   ) {
     this.loginForm = this.formBuilder.group({
       login: '',
@@ -21,17 +23,21 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(value) {
+  async onSubmit(value) {
     console.log(value);
     const userPermissions = {
       page1: true,
-      page2: true,
+      page2: false,
       page3: true,
       admin: true,
     };
-    const dataString: string = JSON.stringify(userPermissions);
-    localStorage.setItem('user', dataString);
-    this.router.navigateByUrl('/');
+    try {
+      const user = await this.auth.login(value);
+      console.log(user);
+    } catch {}
+    // const dataString: string = JSON.stringify(userPermissions);
+    // localStorage.setItem('user', dataString);
+    // this.router.navigateByUrl('/');
     // this.loginForm.reset();
   }
 
