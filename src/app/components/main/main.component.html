@@ -1,7 +1,17 @@
 <div class="main navigation">
-  <a *ngFor="let path of paths"
-    class="navigation__item"
-    routerLink="{{path.link}}">
-    {{path.name}}
+  <a class="navigation__item" routerLink="/public">
+    Публичная страница
+  </a>
+  <a class="navigation__item" routerLink="/page1">
+    Закрытый раздел 1
+  </a>
+  <a class="navigation__item" routerLink="/page2">
+    Закрытый раздел 2
+  </a>
+  <a class="navigation__item" routerLink="/page3">
+    Закрытый раздел 3
+  </a>
+  <a class="navigation__item" routerLink="/admin">
+    Закрытый раздел 4
   </a>
 </div>

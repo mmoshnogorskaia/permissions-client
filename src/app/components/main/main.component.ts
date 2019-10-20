@@ -7,6 +7,7 @@ import { Path } from '@app/shared/interfaces';
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent implements OnInit {
+  user;
   paths: Array<Path> = [
     {
       name: 'Публичная страница',
@@ -33,6 +34,7 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.user = localStorage.getItem('user');
   }
 
 }
