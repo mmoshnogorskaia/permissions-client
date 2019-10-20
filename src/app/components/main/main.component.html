@@ -1,1 +1,7 @@
-<p>main works!</p>
+<div class="main navigation">
+  <a *ngFor="let path of paths"
+    class="navigation__item"
+    routerLink="{{path.link}}">
+    {{path.name}}
+  </a>
+</div>
