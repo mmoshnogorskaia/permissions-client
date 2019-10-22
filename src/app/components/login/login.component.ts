@@ -32,8 +32,7 @@ export class LoginComponent implements OnInit {
       admin: true,
     };
     try {
-      const user = await this.auth.login(value);
-      console.log(user);
+      this.auth.login(value).subscribe((value=>console.log(value)));
     } catch {}
     // const dataString: string = JSON.stringify(userPermissions);
     // localStorage.setItem('user', dataString);
